@@ -20,6 +20,5 @@ const OliviaMitchell = new Worker("Olivia Mitchell", "Nurse", "7:00", "22:00", 6
 const AvaThompson = new Worker("Ava Thompson", "Nurse", "8:00", "23:00", 75, 75);
 
 
-
 console.log(Worker.instances);
 
