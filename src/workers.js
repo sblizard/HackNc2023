@@ -17,7 +17,7 @@ const JordanMartinez = new Worker("Jordan Martinez", "Nurse", "5:00", "3:00", 80
 const CameronTurner = new Worker("Cameron Turner", "Nurse", "9:00", "22:00", 40, 30);
 const MasonAnderson = new Worker("Mason Anderson", "Nurse", "5:00", "16:00", 75, 75);
 const OliviaMitchell = new Worker("Olivia Mitchell", "Nurse", "7:00", "22:00", 60, 60);
-//const  = new Worker("Jane Doe", "Nurse", "5:00", "3:00", 75, 75);
+const AvaThompson = new Worker("Ava Thompson", "Nurse", "8:00", "23:00", 75, 75);
 
 
 
