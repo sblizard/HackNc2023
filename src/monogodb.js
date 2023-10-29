@@ -126,6 +126,9 @@ const MasonAnderson = new Worker("Mason Anderson", "Nurse", "5:00", "16:00", 75,
 const OliviaMitchell = new Worker("Olivia Mitchell", "Nurse", "7:00", "22:00", 60, 60);
 const AvaThompson = new Worker("Ava Thompson", "Nurse", "8:00", "23:00", 75, 75);
 
-
-console.log();
-
+const BenjaminMitchell = new Patient("Benjamin Mitchell", 46, "Anaphylaxis", "Alergic reaction to eating food that contained peanuts.", 60, 405);
+const EthanReynolds = new Patient("Ethan Reynolds", 14,"High Fever", "Came into the hospital with a fever of 102 -- sevearly dehydrated.", 89, 103);
+const LucasAnderson = new Patient("Lucas Anderson", 78, "Severe Abdominal Pain", "Came in complaining of intense pain in his abdomin and a slight fever.", 64, 278);
+const DanielThompson = new Patient("Daniel Thompson", 55, "Concussion", "Got a heavy hit while playing football with friends. Was not wearing a helmet and is complaining of the lights being too bright.", 54, 102);
+const OliviaParker = new Patient("Olivia Parker", 33, "Severe Burns", "Burnt themselves while setting up a fire pit in their backyard.", 47, 361);
+const AvaJohnson = new Patient("Ava Johnson", 14, "Seizures and Neurological Episodes", "Her mother brought her in after witnessing violent shaking and loss of consciousness in her daughter.", 87, 430);
