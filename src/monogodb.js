@@ -1,5 +1,8 @@
 const { MongoClient } = require('mongodb');
+
+
 async function fetchDataPatients() {
+    //gets values from database
     const mongoClient = new MongoClient('mongodb+srv://sblizard:chrjtStsMuWNaIfZ@hacknc2023.x9pnsi7.mongodb.net/Patients?retryWrites=true&w=majority');
 
     try {
@@ -11,7 +14,9 @@ async function fetchDataPatients() {
     }
 }
 
+
 async function createDocumentPatients(name, age, injury_name, injury_details, severity, room_number) {
+    //uploads values of patients in database
     const mongoClient = new MongoClient('mongodb+srv://sblizard:chrjtStsMuWNaIfZ@hacknc2023.x9pnsi7.mongodb.net/Patients?retryWrites=true&w=majority');
 
     try {
@@ -26,6 +31,7 @@ async function createDocumentPatients(name, age, injury_name, injury_details, se
 }
 
 async function updateDocumentPatients(name, value_type, updated_value) {
+    //updates values of patients
     const mongoClient = new MongoClient('mongodb+srv://sblizard:chrjtStsMuWNaIfZ@hacknc2023.x9pnsi7.mongodb.net/Patients?retryWrites=true&w=majority');
 
     try {
@@ -44,8 +50,10 @@ async function updateDocumentPatients(name, value_type, updated_value) {
         await mongoClient.close();
     }
 }
-////////
+
+
 async function fetchDataWorkers() {
+    //gets worker values from databse
     const mongoClient = new MongoClient('mongodb+srv://sblizard:chrjtStsMuWNaIfZ@hacknc2023.x9pnsi7.mongodb.net/Workers?retryWrites=true&w=majority');
 
     try {
@@ -57,7 +65,9 @@ async function fetchDataWorkers() {
     }
 }
 
+
 async function createDocumentWorkers(name, role, shift_start, shift_end, stress, fatigue) {
+    //adds worker to database
     const mongoClient = new MongoClient('mongodb+srv://sblizard:chrjtStsMuWNaIfZ@hacknc2023.x9pnsi7.mongodb.net/Workers?retryWrites=true&w=majority');
 
     try {
@@ -71,7 +81,9 @@ async function createDocumentWorkers(name, role, shift_start, shift_end, stress,
     }
 }
 
+
 async function updateDocumentWorkers(name, value_type, updated_value) {
+    //updates value of workers
     const mongoClient = new MongoClient('mongodb+srv://sblizard:chrjtStsMuWNaIfZ@hacknc2023.x9pnsi7.mongodb.net/Workers?retryWrites=true&w=majority');
 
     try {
@@ -93,6 +105,7 @@ async function updateDocumentWorkers(name, value_type, updated_value) {
 
 
 class Worker {
+    //Worker class
     static instances = [];
     constructor(name, role, shift_start, shift_end, stress, fatigue) {
         this.name = name;
@@ -108,6 +121,7 @@ class Worker {
 
 
 class Patient {
+    //Patient class
     constructor(name, age, injury_name, injury_details, severity, room_number) {
         this.name = name;
         this.injury = injury_name;
@@ -118,7 +132,7 @@ class Patient {
     }
 }
 
-
+//Worker objects
 const EthanHarris = new Worker("Ethan Harris", "Nurse", "6:00", "18:00", 50, 60);
 const JordanMartinez = new Worker("Jordan Martinez", "Nurse", "5:00", "3:00", 80, 75);
 const CameronTurner = new Worker("Cameron Turner", "Nurse", "9:00", "22:00", 40, 30);
@@ -126,6 +140,8 @@ const MasonAnderson = new Worker("Mason Anderson", "Nurse", "5:00", "16:00", 75,
 const OliviaMitchell = new Worker("Olivia Mitchell", "Nurse", "7:00", "22:00", 60, 60);
 const AvaThompson = new Worker("Ava Thompson", "Nurse", "8:00", "23:00", 75, 75);
 
+
+//Patient objects
 const BenjaminMitchell = new Patient("Benjamin Mitchell", 46, "Anaphylaxis", "Alergic reaction to eating food that contained peanuts.", 60, 405);
 const EthanReynolds = new Patient("Ethan Reynolds", 14,"High Fever", "Came into the hospital with a fever of 102 -- sevearly dehydrated.", 89, 103);
 const LucasAnderson = new Patient("Lucas Anderson", 78, "Severe Abdominal Pain", "Came in complaining of intense pain in his abdomin and a slight fever.", 64, 278);
