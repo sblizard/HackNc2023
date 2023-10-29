@@ -66,13 +66,13 @@ async function fetchDataWorkers() {
 }
 
 
-async function createDocumentWorkers(name, role, shift_start, shift_end, stress, fatigue) {
+async function createDocumentWorkers(name, role, shift_start, shift_end, cognitive_load, fatigue) {
     //adds worker to database
     const mongoClient = new MongoClient('mongodb+srv://sblizard:chrjtStsMuWNaIfZ@hacknc2023.x9pnsi7.mongodb.net/Workers?retryWrites=true&w=majority');
 
     try {
         await mongoClient.connect();
-        const result = await mongoClient.db().collection('Workers').insertOne({ name, role, shift_start, shift_end, stress, fatigue });
+        const result = await mongoClient.db().collection('Workers').insertOne({ name, role, shift_start, shift_end, cognitive_load, fatigue });
         console.log(`Document inserted with ID: ${result.insertedId}`);
     } catch (err) {
         console.error('Error inserting document:', err);
@@ -107,14 +107,14 @@ async function updateDocumentWorkers(name, value_type, updated_value) {
 class Worker {
     //Worker class
     static instances = [];
-    constructor(name, role, shift_start, shift_end, stress, fatigue) {
+    constructor(name, role, shift_start, shift_end, cognitive_load, fatigue) {
         this.name = name;
         this.role = role;
         this.shift_start = shift_start;
         this.shift_end = shift_end;
-        this.stress = stress;
+        this.cognitive_load = cognitive_load;
         this.fatigue = fatigue;
-        createDocumentWorkers(this.name, this.role, this.shift_start, this.shift_end, this.stress, this.fatigue);
+        createDocumentWorkers(this.name, this.role, this.shift_start, this.shift_end, this.cognitive_load, this.fatigue);
         Worker.instances.push(this);
     }
 }
@@ -131,6 +131,7 @@ class Patient {
         createDocumentPatients(name, age, injury_name, injury_details, severity, room_number);
     }
 }
+
 
 //Worker objects
 const EthanHarris = new Worker("Ethan Harris", "Nurse", "6:00", "18:00", 50, 60);
